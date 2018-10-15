@@ -30,9 +30,9 @@ const styles = theme => ({
   }
 });
 
-class Signup extends Component {
+class Signin extends Component {
   onSubmit = formProps => {
-    this.props.signup(formProps, () => {
+    this.props.signin(formProps, () => {
       this.props.history.push('/feature');
     });
   };
@@ -43,7 +43,7 @@ class Signup extends Component {
         onSubmit={handleSubmit(this.onSubmit)}
         className={classes.container}
       >
-        <FormLabel>Sign Up Form</FormLabel>
+        <FormLabel>Sign In Form</FormLabel>
         <Field
           error={this.props.errorMessage === '' ? false : true}
           className={classes.textField}
@@ -69,14 +69,14 @@ class Signup extends Component {
           color="primary"
           className={classes.button}
         >
-          Sign up
+          Sign in
         </Button>
       </form>
     );
   }
 }
 
-Signup.propTypes = {
+Signin.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
@@ -90,7 +90,6 @@ export default compose(
     mapStateToProps,
     actions
   ),
-  reduxForm({ form: 'signup' })
-)(Signup);
-
+  reduxForm({ form: 'signin' })
+)(Signin);
 //reduxForm({ form: 'signup' })(withStyles(styles)(Signup));
